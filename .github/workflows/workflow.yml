@@ -29,6 +29,7 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: ${{ matrix.rust }}
+      - uses: Swatinem/rust-cache@v1
       - run: cargo test
 
   rustfmt:
@@ -39,4 +40,5 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
+      - uses: Swatinem/rust-cache@v1
       - run: cargo fmt -- --check
