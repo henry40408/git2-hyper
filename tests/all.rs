@@ -1,4 +1,3 @@
-
 use std::fs::File;
 use std::path::Path;
 
@@ -42,7 +41,7 @@ fn main() {
             &r1.find_tree(tree_id).unwrap(),
             &[],
         )
-            .unwrap();
+        .unwrap();
     }
 
     // Clone through the git-http-backend
@@ -65,7 +64,7 @@ fn main() {
             &r1.find_tree(tree_id).unwrap(),
             &[&parent],
         )
-            .unwrap();
+        .unwrap();
     }
 
     let mut remote = r.find_remote("origin").unwrap();
