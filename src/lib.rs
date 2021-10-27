@@ -1,3 +1,14 @@
+#![deny(
+    missing_docs,
+    missing_debug_implementations,
+    missing_copy_implementations,
+    trivial_casts,
+    trivial_numeric_casts,
+    unstable_features,
+    unused_import_braces,
+    unused_qualifications
+)]
+
 //! A crate for using hyper as a backend for HTTP(S) git requests with git2-rs.
 //!
 //! This crate provides one public function, `register`, which will register
@@ -47,7 +58,7 @@ struct HyperSubtransport {
     url_path: &'static str,
     base_url: Arc<Mutex<String>>,
     method: &'static str,
-    response: Option<hyper::Response<hyper::body::Body>>,
+    response: Option<hyper::Response<Body>>,
     sent_request: bool,
     runtime_handle: tokio::runtime::Handle,
 }
