@@ -198,10 +198,9 @@ impl HyperSubtransport {
             .unwrap();
         let headers = res.headers();
 
-        let content_type = match headers.get(header::CONTENT_TYPE) {
-            Some(v) => Some(v.to_str().unwrap()),
-            None => None,
-        };
+        let content_type = headers
+            .get(header::CONTENT_TYPE)
+            .map(|v| v.to_str().unwrap());
 
         let code = res.status();
         if code.as_u16() != 200 {
