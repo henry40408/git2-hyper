@@ -3,7 +3,7 @@ use std::path::Path;
 
 use civet::{Config, Server};
 use conduit_git_http_backend as git_backend;
-use hyper_rustls::HttpsConnector;
+use hyper_tls::HttpsConnector;
 use tempfile::TempDir;
 
 const PORT: u16 = 7848;
@@ -13,7 +13,7 @@ fn main() {
         git2_hyper::register(
             hyper::Client::builder()
                 .http1_title_case_headers(true)
-                .build(HttpsConnector::with_webpki_roots()),
+                .build(HttpsConnector::new()),
         );
     }
 

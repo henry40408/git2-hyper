@@ -20,7 +20,7 @@ use std::path::{Path, PathBuf};
 
 use git2::build::{CheckoutBuilder, RepoBuilder};
 use git2::{FetchOptions, Progress, RemoteCallbacks};
-use hyper_rustls::HttpsConnector;
+use hyper_tls::HttpsConnector;
 use structopt::StructOpt;
 
 #[derive(StructOpt)]
@@ -124,7 +124,7 @@ fn main() {
         git2_hyper::register(
             hyper::Client::builder()
                 .http1_title_case_headers(true)
-                .build(HttpsConnector::with_webpki_roots()),
+                .build(HttpsConnector::new()),
         );
     }
 

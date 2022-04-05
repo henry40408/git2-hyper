@@ -14,7 +14,8 @@ edition = "2018"
 [dependencies]
 git2 = { version = "0.14.2", default-features = false }
 hyper = { version = "0.14", features = ["client", "http1", "tcp"] }
-hyper-rustls = { version = "0.22", default-features = false, features = ["webpki-tokio"] }
+hyper-tls = { version = "0.5", default-features = false, optional = true }
+hyper-rustls = { version = "0.22", default-features = false, features = ["webpki-tokio"], optional = true }
 log = "0.4"
 tokio = { version = "1.3", features = ["rt-multi-thread"] }
 
@@ -26,8 +27,10 @@ tempfile = "3.0"
 structopt = "0.3"
 
 [features]
-default = ["http2"]
+default = ["http2", "native"]
 http2 = ["hyper/http2"]
+native = ["hyper-tls"]
+rustls = ["hyper-rustls"]
 
 [[test]]
 name = "all"
