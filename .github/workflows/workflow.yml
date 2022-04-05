@@ -31,6 +31,7 @@ jobs:
           toolchain: ${{ matrix.rust }}
       - uses: Swatinem/rust-cache@v1
       - run: cargo test
+      - run: cargo run --example clone https://github.com/henry40408/git2-hyper.git /tmp/git2-hyper
 
   rustfmt:
     name: Rustfmt
