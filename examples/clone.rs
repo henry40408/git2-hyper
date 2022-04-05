@@ -20,7 +20,13 @@ use std::path::{Path, PathBuf};
 
 use git2::build::{CheckoutBuilder, RepoBuilder};
 use git2::{FetchOptions, Progress, RemoteCallbacks};
+
+#[cfg(feature = "native")]
 use hyper_tls::HttpsConnector;
+
+#[cfg(feature = "rustls")]
+use hyper_rustls::HttpsConnector;
+
 use structopt::StructOpt;
 
 #[derive(StructOpt)]
@@ -120,11 +126,21 @@ fn run(args: &Args) -> Result<(), git2::Error> {
 }
 
 fn main() {
+    #[cfg(feature = "native")]
     unsafe {
         git2_hyper::register(
             hyper::Client::builder()
                 .http1_title_case_headers(true)
                 .build(HttpsConnector::new()),
+        );
+    }
+
+    #[cfg(feature = "rustls")]
+    unsafe {
+        git2_hyper::register(
+            hyper::Client::builder()
+                .http1_title_case_headers(true)
+                .build(HttpsConnector::with_webpki_roots()),
         );
     }
 

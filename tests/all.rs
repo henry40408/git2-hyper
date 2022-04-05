@@ -3,17 +3,33 @@ use std::path::Path;
 
 use civet::{Config, Server};
 use conduit_git_http_backend as git_backend;
+
+#[cfg(feature = "native")]
 use hyper_tls::HttpsConnector;
+
+#[cfg(feature = "rustls")]
+use hyper_rustls::HttpsConnector;
+
 use tempfile::TempDir;
 
 const PORT: u16 = 7848;
 
 fn main() {
+    #[cfg(feature = "native")]
     unsafe {
         git2_hyper::register(
             hyper::Client::builder()
                 .http1_title_case_headers(true)
                 .build(HttpsConnector::new()),
+        );
+    }
+
+    #[cfg(feature = "rustls")]
+    unsafe {
+        git2_hyper::register(
+            hyper::Client::builder()
+                .http1_title_case_headers(true)
+                .build(HttpsConnector::with_webpki_roots()),
         );
     }
 
