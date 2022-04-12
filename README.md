@@ -1,5 +1,7 @@
 # git2-hyper
 
+![workflow](https://github.com/henry40408/git2-hyper/actions/workflows/workflow.yml/badge.svg?branch=master)
+
 > [hyper](https://github.com/hyperium/hyper/) binding for [libgit2 bindings for Rust](https://github.com/rust-lang/git2-rs/)
 
 ## Rust version requirements
