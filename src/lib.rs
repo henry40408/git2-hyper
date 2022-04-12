@@ -36,7 +36,13 @@ use hyper::http::header;
 use hyper::Body;
 use hyper::Request;
 use hyper::{Method, Uri};
+
+#[cfg(feature = "native")]
+use hyper_tls::HttpsConnector;
+
+#[cfg(feature = "rustls")]
 use hyper_rustls::HttpsConnector;
+
 use log::{debug, info};
 
 use git2::transport::{Service, SmartSubtransport, SmartSubtransportStream, Transport};
