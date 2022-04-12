@@ -2,7 +2,7 @@
 name = "git2-hyper"
 version = "0.1.0"
 authors = ["Henry Wu <2316687+henry40408@users.noreply.github.com>"]
-license = "MIT/Apache-2.0"
+license = "MIT OR Apache-2.0"
 repository = "https://github.com/henry40408/git2-hyper"
 documentation = "https://docs.rs/git2-hyper"
 description = """
