@@ -1,6 +1,6 @@
 [package]
 name = "git2-hyper"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Henry Wu <2316687+henry40408@users.noreply.github.com>"]
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/henry40408/git2-hyper"
