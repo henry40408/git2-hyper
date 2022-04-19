@@ -1,6 +1,9 @@
 # git2-hyper
 
-![workflow](https://github.com/henry40408/git2-hyper/actions/workflows/workflow.yml/badge.svg)
+![Crates.io](https://img.shields.io/crates/v/git2-hyper?style=flat-square)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/henry40408/git2-hyper/CI?style=flat-square)
+![docs.rs](https://img.shields.io/docsrs/git2-hyper?style=flat-square)
+![Crates.io](https://img.shields.io/crates/l/git2-hyper?style=flat-square)
 
 > [hyper](https://github.com/hyperium/hyper/) binding for [libgit2 bindings for Rust](https://github.com/rust-lang/git2-rs/)
 
